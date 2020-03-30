@@ -1,0 +1,23 @@
+import React, { createContext, Component } from 'react';
+
+export const TemaContexto = createContext();
+
+class ProveerTemContexto extends Component {
+
+    state = {
+        isLightTheme: true,
+        light: { stiloText: '#555', ui: '#ddd', bg:'#eee'},
+        dark: { stiloText: '#ddd', ui: '#333', bg:'#555'},
+    }
+
+    render() {
+
+        return (
+            <TemaContexto.Provider value = { { ...this.state } }>
+             { this.props.children }
+            </TemaContexto.Provider>
+        );
+    }
+}
+
+export default ProveerTemContexto;
